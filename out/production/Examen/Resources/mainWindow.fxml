@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="1000.0001068115234" prefWidth="1105.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.Controller">
+  <children>
+    <VBox layoutX="0.0" layoutY="0.0" prefHeight="432.0" prefWidth="1105.0">
+      <children>
+        <Label alignment="CENTER" prefWidth="1105.0" text="Reservation List" textAlignment="CENTER">
+          <font>
+            <Font size="20.0" fx:id="x1" />
+          </font>
+        </Label>
+        <TableView fx:id="tableViewReservations" prefHeight="367.0" prefWidth="553.0">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="133.0" text="ID" fx:id="tableColumnIdReservation">
+              <cellValueFactory>
+                <PropertyValueFactory property="id" />
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="211.0" text="ID Car" fx:id="tableColumnIdReservationCar">
+              <cellValueFactory>
+                <PropertyValueFactory property="idCar" />
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="180.0" text="Days" fx:id="tableColumnDays">
+              <cellValueFactory>
+                <PropertyValueFactory property="days" />
+              </cellValueFactory>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="166.0" text="Kilometers" fx:id="tableColumnCarKilometers">
+              <cellValueFactory>
+                <PropertyValueFactory property="kilometers" />
+              </cellValueFactory>
+            </TableColumn>
+          </columns>
+        </TableView>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+          <children>
+            <Button fx:id="btnReservationAdd" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnReservationAddClick" text="Add" textAlignment="CENTER" />
+            <Button fx:id="btnReservationDelete" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnReservationDeleteClick" text="Delete" textAlignment="CENTER" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+    <HBox layoutX="0.0" layoutY="432.0" prefHeight="371.0" prefWidth="1105.0">
+      <children>
+        <VBox prefHeight="371.0" prefWidth="767.0">
+          <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefWidth="1096.0" text="Car List" textAlignment="CENTER" />
+            <TableView id="tableViewClients" fx:id="tableViewCars" prefHeight="275.0" prefWidth="1091.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" fx:id="tableColumnIdCar">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="id" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="143.0" text="Model" fx:id="tableColumnModel">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="model" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="136.0" text="Kilometer" fx:id="tableColumnKilometer">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="kilometer" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="119.0" text="Price" fx:id="tableColumnPrice">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="144.0" text="Days Rented" fx:id="tableColumnTotalDays">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="totalDays" />
+                  </cellValueFactory>
+                </TableColumn>
+              </columns>
+            </TableView>
+            <HBox alignment="CENTER" prefHeight="128.0" prefWidth="1104.0">
+              <children>
+                <Button id="btnClientAdd" fx:id="btnCarAdd" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnCarAddClick" text="Add" textAlignment="CENTER" />
+                <Button id="btnClientDelete" fx:id="btnCarDelete" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnCarDeleteClick" text="Delete" textAlignment="CENTER" />
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+        <VBox prefHeight="371.0" prefWidth="338.0">
+          <children>
+            <TextField fx:id="txtKilometerInput" prefWidth="200.0" />
+            <Button mnemonicParsing="false" onAction="#kilometersReport" text="Kilometers Report" />
+            <Label id="txtProfitInput" fx:id="kilometerOutput" prefWidth="303.0" text="0" />
+            <TextField fx:id="txtProfitInput" prefWidth="200.0" />
+            <Button mnemonicParsing="false" onAction="#profitReport" text="Profit Report" />
+            <Label fx:id="profitOutput" prefWidth="338.0" text="0" />
+            <Button mnemonicParsing="false" onAction="#carsByDaysReport" text="Show cars by total days rented" />
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+  </children>
+</AnchorPane>
